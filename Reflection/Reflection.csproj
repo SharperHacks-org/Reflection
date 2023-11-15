@@ -55,8 +55,8 @@
       <PackagePath>\</PackagePath>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="$(SolutionDir)SHLLC-Logo.jpg" Pack="true" PackagePath="\" />
-    <None Update="$(SolutionDir)SHLLC-Logo.jpg">
+    <None Include="$(SolutionDir)*.jpg" Pack="true" PackagePath="\" />
+    <None Update="$(SolutionDir)*.jpg">
       <Pack>True</Pack>
       <PackagePath>\</PackagePath>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
