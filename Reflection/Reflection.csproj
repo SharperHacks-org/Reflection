@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <AnalysisLevel>latest-recommended</AnalysisLevel>
@@ -39,7 +39,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="SharperHacks.CoreLibs.Constraints" Version="1.0.0" />
+    <PackageReference Include="SharperHacks.CoreLibs.Constraints" Version="2.0.0" />
   </ItemGroup>
 
   <ItemGroup>

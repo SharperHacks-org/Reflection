@@ -16,9 +16,9 @@
 // applied to distributions of derivative works, without the express written
 // permission of a registered officer of Sharper Hacks LLC (US-WA).
 
-using System.Runtime.CompilerServices;
+using SharperHacks.CoreLibs.Constraints;
 
-using SharperHacks.Constraints;
+using System.Runtime.CompilerServices;
 
 namespace SharperHacks.CoreLibs.Reflection;
 

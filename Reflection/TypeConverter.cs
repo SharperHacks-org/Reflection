@@ -16,7 +16,7 @@
 // applied to distributions of derivative works, without the express written
 // permission of a registered officer of Sharper Hacks LLC (US-WA).
 
-using SharperHacks.Constraints;
+using SharperHacks.CoreLibs.Constraints;
 
 using System.Globalization;
 
@@ -63,17 +63,11 @@ public static class TypeConverter
     /// <returns>Value of type T</returns>
     public static T ConvertFromString<T>(string valueString)
     {
-        if (typeof(T).IsEnum)
-        {
-            return (T)Enum.Parse(typeof(T), valueString);
-        }
-
-        if (typeof(T).IsArray)
-        {
-            return ConvertFromArrayOfString<T>(valueString.Split(','));
-        }
-
-        return ChangeTypeOrThrow<T>(valueString);
+        return typeof(T).IsEnum
+            ? (T)Enum.Parse(typeof(T), valueString)
+            : typeof(T).IsArray 
+            ? ConvertFromArrayOfString<T>(valueString.Split(',')) 
+            : ChangeTypeOrThrow<T>(valueString);
     }
 
     /// <summary>
