@@ -1,3 +1,19 @@
+// Copyright and trademark notices at the end of this file.
+
+using System.Diagnostics.CodeAnalysis;
+
+using SharperHacks.CoreLibs.Reflection.UnitTests.TestInterface;
+
+// ReSharper disable once CheckNamespace
+namespace SharperHacks.CoreLibs.Reflection.UnitTests.TestTarget;
+
+[ExcludeFromCodeCoverage]
+//    [UsedImplicitly]
+public class Test2 : ITest2
+{
+    public int DoSomething() => throw new System.NotImplementedException();
+}
+
 // Copyright Joseph W Donahue and Sharper Hacks LLC (US-WA)
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
@@ -15,17 +31,3 @@
 // SharperHacks is a trademark of Sharper Hacks LLC (US-Wa), and may not be
 // applied to distributions of derivative works, without the express written
 // permission of a registered officer of Sharper Hacks LLC (US-WA).
-
-using System.Diagnostics.CodeAnalysis;
-
-using SharperHacks.CoreLibs.Reflection.UnitTests.TestInterface;
-
-// ReSharper disable once CheckNamespace
-namespace SharperHacks.CoreLibs.Reflection.UnitTests.TestTarget;
-
-[ExcludeFromCodeCoverage]
-//    [UsedImplicitly]
-public class Test2 : ITest2
-{
-    public int DoSomething() => throw new System.NotImplementedException();
-}

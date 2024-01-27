@@ -1,3 +1,27 @@
+// Copyright and trademark notices at the end of this file.
+
+namespace SharperHacks.CoreLibs.Reflection.UnitTests;
+
+[ExcludeFromCodeCoverage()]
+[TestClass]
+public class CodeSmokeTests
+{
+    [TestMethod]
+    public void SmokeThemAll()
+    {
+        Console.WriteLine(Code.SourceFilePathName());
+
+        Assert.AreEqual(14, Code.LineNumber());
+        Assert.AreEqual(nameof(SmokeThemAll), Code.MemberName());
+
+        // We define the PathMap element in Directory.Build.Props to be $(SolutionDir)=$
+        // to strip away path elements in front of the solution root directory. This
+        // avoids machine or user information that might otherwise be embedded in the
+        // source path.
+        Assert.AreEqual("{SHLLC/CoreLibs/Reflection}/Reflection.UnitTests/CodeSmokeTests.cs", Code.SourceFilePathName());
+    }
+}
+
 // Copyright Joseph W Donahue and Sharper Hacks LLC (US-WA)
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
@@ -15,25 +39,3 @@
 // SharperHacks is a trademark of Sharper Hacks LLC (US-Wa), and may not be
 // applied to distributions of derivative works, without the express written
 // permission of a registered officer of Sharper Hacks LLC (US-WA).
-
-namespace SharperHacks.CoreLibs.Reflection.UnitTests;
-
-[ExcludeFromCodeCoverage()]
-[TestClass]
-public class CodeSmokeTests
-{
-    [TestMethod]
-    public void SmokeThemAll()
-    {
-        Console.WriteLine(Code.SourceFilePathName());
-
-        Assert.AreEqual(30, Code.LineNumber());
-        Assert.AreEqual(nameof(SmokeThemAll), Code.MemberName());
-
-        // We define the PathMap element in Directory.Build.Props to be $(SolutionDir)=$
-        // to strip away path elements in front of the solution root directory. This
-        // avoids machine or user information that might otherwise be embedded in the
-        // source path.
-        Assert.AreEqual("{SHLLC/CoreLibs/Reflection}/Reflection.UnitTests/CodeSmokeTests.cs", Code.SourceFilePathName());
-    }
-}

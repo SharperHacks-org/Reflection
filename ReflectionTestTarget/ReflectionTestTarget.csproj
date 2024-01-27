@@ -13,7 +13,7 @@
   </PropertyGroup>
 
   <PropertyGroup>
-    <TargetFrameworks>net6.0;net7.0;net8.0</TargetFrameworks>
+    <TargetFrameworks>net7.0;net8.0</TargetFrameworks>
     <SuppressNETCoreSdkPreviewMessage>true</SuppressNETCoreSdkPreviewMessage>
     <Version>0.0.0-a.dev.$(USERNAME)</Version>
     <EnforceCodeStyleInBuild>False</EnforceCodeStyleInBuild>
@@ -32,7 +32,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="SharperHacks.CoreLibs.Constraints" Version="2.0.0" />
+    <PackageReference Include="SharperHacks.CoreLibs.Constraints" Version="3.0.0" />
   </ItemGroup>
 
   <ItemGroup>

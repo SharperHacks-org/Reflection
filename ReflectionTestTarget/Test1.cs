@@ -1,3 +1,21 @@
+// Copyright and trademark notices at the end of this file.
+
+// ReSharper disable once CheckNamespace
+
+using SharperHacks.CoreLibs.Reflection.UnitTests.TestInterface;
+
+using System.Diagnostics.CodeAnalysis;
+
+
+// ReSharper disable once CheckNamespace
+namespace SharperHacks.CoreLibs.Reflection.UnitTests.TestTarget;
+
+[ExcludeFromCodeCoverage]
+public class Test1 : ITest1
+{
+    public int Value { get; set; } = 41;
+}
+
 // Copyright Joseph W Donahue and Sharper Hacks LLC (US-WA)
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
@@ -15,19 +33,3 @@
 // SharperHacks is a trademark of Sharper Hacks LLC (US-Wa), and may not be
 // applied to distributions of derivative works, without the express written
 // permission of a registered officer of Sharper Hacks LLC (US-WA).
-
-// ReSharper disable once CheckNamespace
-
-using SharperHacks.CoreLibs.Reflection.UnitTests.TestInterface;
-
-using System.Diagnostics.CodeAnalysis;
-
-
-// ReSharper disable once CheckNamespace
-namespace SharperHacks.CoreLibs.Reflection.UnitTests.TestTarget;
-
-[ExcludeFromCodeCoverage]
-public class Test1 : ITest1
-{
-    public int Value { get; set; } = 41;
-}
