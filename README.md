@@ -25,6 +25,9 @@ A colleciton of reflection helpers.
 #### TypeConverter
 Collection of static methods to aid in converting from string representation to other types.
 
+#### TypeLoaderExtensions
+Assembly.GetTypes wrappers.
+
 
 
 
