@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <Description>Defines reflection classes and methods.</Description>
@@ -13,7 +13,6 @@
   </PropertyGroup>
 
   <PropertyGroup>
-    <TargetFrameworks>net7.0;net8.0</TargetFrameworks>
     <SuppressNETCoreSdkPreviewMessage>true</SuppressNETCoreSdkPreviewMessage>
     <Version>0.0.0-a.dev.$(USERNAME)</Version>
     <EnforceCodeStyleInBuild>False</EnforceCodeStyleInBuild>
@@ -31,8 +30,16 @@
     <WarningLevel>7</WarningLevel>
   </PropertyGroup>
 
+  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net9.0|AnyCPU'">
+    <WarningLevel>7</WarningLevel>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net9.0|AnyCPU'">
+    <WarningLevel>7</WarningLevel>
+  </PropertyGroup>
+
   <ItemGroup>
-    <PackageReference Include="SharperHacks.CoreLibs.Constraints" Version="3.0.0" />
+    <PackageReference Include="SharperHacks.CoreLibs.Constraints" Version="4.0.0" />
   </ItemGroup>
 
   <ItemGroup>

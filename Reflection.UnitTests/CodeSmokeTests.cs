@@ -14,10 +14,9 @@ public class CodeSmokeTests
         Assert.AreEqual(14, Code.LineNumber());
         Assert.AreEqual(nameof(SmokeThemAll), Code.MemberName());
 
-        // We define the PathMap element in Directory.Build.Props to be $(SolutionDir)=$
-        // to strip away path elements in front of the solution root directory. This
-        // avoids machine or user information that might otherwise be embedded in the
-        // source path.
+        // We define the PathMap element in Directory.Build.Props to strip away path
+        // elements in front of the solution root directory. This avoids machine or
+        // user information that might otherwise be embedded in the source path.
         Assert.AreEqual("{SHLLC/CoreLibs/Reflection}/Reflection.UnitTests/CodeSmokeTests.cs", Code.SourceFilePathName());
     }
 }
