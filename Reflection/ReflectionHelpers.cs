@@ -1,6 +1,7 @@
 // Copyright and trademark notices at the end of this file.
 
 using System.Reflection;
+using System.Runtime.CompilerServices;
 
 namespace SharperHacks.CoreLibs.Reflection;
 
@@ -102,6 +103,23 @@ public static class ReflectionHelpers
                 yield return matchedType;
             }
         }
+    }
+
+    /// <summary>
+    /// Get whether the type is a simple value type (numeric struct).
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
+    /// <param name="type"></param>
+    /// <returns></returns>
+    public static bool IsSimpleValueType<T>(Type type)
+    {
+        if (!type.IsValueType) return false;
+
+        var properties = type.GetProperties();
+
+        return properties is not null
+          && properties.Length == 0
+          && type.GetFields().Length == 0;
     }
 }
 

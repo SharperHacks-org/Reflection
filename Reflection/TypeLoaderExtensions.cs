@@ -16,7 +16,7 @@ public static class TypeLoaderExtensions
     /// </summary>
     /// <param name="assembly"></param>
     /// <returns></returns>
-    public static IEnumerable<Type> GetLoadableTypes(this Assembly assembly) 
+    public static IEnumerable<Type> GetLoadableTypes(this Assembly assembly)
     {
         Verify.IsNotNull(assembly, nameof(assembly));
 
