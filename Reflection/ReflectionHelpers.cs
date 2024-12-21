@@ -1,7 +1,6 @@
 // Copyright and trademark notices at the end of this file.
 
 using System.Reflection;
-using System.Runtime.CompilerServices;
 
 namespace SharperHacks.CoreLibs.Reflection;
 
