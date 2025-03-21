@@ -1,0 +1,18 @@
+<Solution>
+  <Folder Name="/Solution Items/">
+    <File Path=".editorconfig" />
+    <File Path=".gitignore" />
+    <File Path="build.cmd" />
+    <File Path="build.cmd.help.txt" />
+    <File Path="checkinTest.cmd" />
+    <File Path="CopyrightChecks.cmd" />
+    <File Path="Directory.Build.Props" />
+    <File Path="nuget.config" />
+    <File Path="README.md" />
+    <File Path="SHLLC-Logo.jpg" />
+  </Folder>
+  <Project Path="Reflection.UnitTests/Reflection.UnitTests.csproj" />
+  <Project Path="Reflection/Reflection.csproj" />
+  <Project Path="ReflectionTestInterfaces/ReflectionTestInterfaces.csproj" />
+  <Project Path="ReflectionTestTarget/ReflectionTestTarget.csproj" />
+</Solution>
