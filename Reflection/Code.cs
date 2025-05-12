@@ -4,7 +4,7 @@ using SharperHacks.CoreLibs.Constraints;
 
 using System.Runtime.CompilerServices;
 
-namespace SharperHacks.CoreLibs.Reflection.UnitTests;
+namespace SharperHacks.CoreLibs.Reflection;
 
 /// <summary>
 /// Static functions for line number, source file path, member name.
