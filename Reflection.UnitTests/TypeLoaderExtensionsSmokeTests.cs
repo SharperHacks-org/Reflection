@@ -5,7 +5,7 @@ using SharperHacks.CoreLibs.Reflection.UnitTests.TestInterface;
 using System.Reflection;
 
 // ReSharper disable once CheckNamespace
-namespace SharperHacks.Reflection.UnitTests;
+namespace SharperHacks.CoreLibs.Reflection.UnitTests;
 
 [ExcludeFromCodeCoverage]
 [TestClass]

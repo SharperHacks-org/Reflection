@@ -5,7 +5,7 @@ using SharperHacks.CoreLibs.Reflection.UnitTests.TestTarget;
 
 using System.Reflection;
 
-namespace SharperHacks.Reflection.UnitTests;
+namespace SharperHacks.CoreLibs.Reflection.UnitTests;
 
 [ExcludeFromCodeCoverage]
 [TestClass]

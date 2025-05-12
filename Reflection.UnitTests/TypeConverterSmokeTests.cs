@@ -1,6 +1,6 @@
 // Copyright and trademark notices at the end of this file.
 
-namespace Reflection.UnitTests;
+namespace SharperHacks.CoreLibs.Reflection.UnitTests;
 
 [ExcludeFromCodeCoverage]
 [TestClass]

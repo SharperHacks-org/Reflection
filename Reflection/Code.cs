@@ -4,7 +4,7 @@ using SharperHacks.CoreLibs.Constraints;
 
 using System.Runtime.CompilerServices;
 
-namespace SharperHacks.CoreLibs.Reflection;
+namespace SharperHacks.CoreLibs.Reflection.UnitTests;
 
 /// <summary>
 /// Static functions for line number, source file path, member name.
@@ -21,13 +21,13 @@ public static class Code
     /// <summary>
     /// Returns the current source file path and name.
     /// </summary>
-    /// <param name="fileName">The compiler will fill this in for you.</param>
+    /// <param name="fqpn">Fully Qualified Path Name. The compiler will fill this in for you.</param>
     /// <returns></returns>
-    public static string SourceFilePathName([CallerFilePath] string fileName = "Not resolvable")
+    public static string SourceFilePathName([CallerFilePath] string fqpn = "Not resolvable")
     {
-        Verify.IsNotNull(fileName);
+        Verify.IsNotNull(fqpn);
 
-        return fileName;
+        return fqpn;
     }
 
     /// <summary>
@@ -40,6 +40,41 @@ public static class Code
         Verify.IsNotNull(memberName);
 
         return memberName;
+    }
+
+    /// <summary>
+    /// Returns string of the form "@ Line #".
+    /// </summary>
+    /// <param name="lineNumber">The compiler will fill this in for you.</param>
+    /// <returns></returns>
+    public static string AtLineNumber([CallerLineNumber] int lineNumber = -1) => $"@ Line {lineNumber}";
+
+    /// <summary>
+    /// Returns string of the form "@ fqpn(#)".
+    /// </summary>
+    /// <param name="lineNumber">The compiler will fill this in for you.</param>
+    /// <param name="fqpn">Fully Qualified Path Name. The compiler will fill this in for you.</param>
+    /// <returns></returns>
+    public static string AtFqpnWithLineNumber(
+        [CallerLineNumber] int lineNumber = -1,
+        [CallerFilePath] string fqpn = "Not resolvable") => $"@ {fqpn}({lineNumber})";
+
+    /// <summary>
+    /// Returns a string of the form "memberName @ fqpn(#)"
+    /// </summary>
+    /// <param name="lineNumber"></param>
+    /// <param name="memberName"></param>
+    /// <param name="fqpn"></param>
+    /// <returns></returns>
+    public static string MemberAtFqpnWithLineNumber(
+        [CallerLineNumber] int lineNumber = -1,
+        [CallerMemberName] string memberName = "Not resolvable",
+        [CallerFilePath] string fqpn = "Not resolvable")
+    {
+        Verify.IsNotNull(memberName);
+        Verify.IsNotNull(fqpn);
+
+        return $"{memberName} @ {fqpn}({lineNumber})";
     }
 }
 

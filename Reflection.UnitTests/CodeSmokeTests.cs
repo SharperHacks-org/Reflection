@@ -7,17 +7,46 @@ namespace SharperHacks.CoreLibs.Reflection.UnitTests;
 public class CodeSmokeTests
 {
     [TestMethod]
-    public void SmokeThemAll()
+    public void LineNumber()
     {
-        Console.WriteLine(Code.SourceFilePathName());
+        Assert.AreEqual(12, Code.LineNumber(), Code.AtLineNumber());
+    }
 
-        Assert.AreEqual(14, Code.LineNumber());
-        Assert.AreEqual(nameof(SmokeThemAll), Code.MemberName());
+    [TestMethod]
+    public void MemberName()
+    {
+        Assert.AreEqual(
+            nameof(MemberName),
+            Code.MemberName(), 
+            Code.AtLineNumber());
+    }
 
+    [TestMethod]
+    public void SourceFilePathName()
+    {
         // We define the PathMap element in Directory.Build.Props to strip away path
         // elements in front of the solution root directory. This avoids machine or
         // user information that might otherwise be embedded in the source path.
-        Assert.AreEqual("{SHLLC/CoreLibs/Reflection}/Reflection.UnitTests/CodeSmokeTests.cs", Code.SourceFilePathName());
+        Assert.AreEqual(
+            "{SHLLC/CoreLibs/Reflection}/Reflection.UnitTests/CodeSmokeTests.cs",
+            Code.SourceFilePathName(),
+            Code.AtLineNumber());
+    }
+
+    [TestMethod]
+    public void AtLineNumber()
+    {
+        Assert.AreEqual("@ Line 39", Code.AtLineNumber(), Code.AtLineNumber());
+    }
+
+    [TestMethod]
+    public void MemberAtFqpnWithLineNumber()
+    {
+        Assert.AreEqual(
+            $"{nameof(MemberAtFqpnWithLineNumber)} @ " +
+            $"{{SHLLC/CoreLibs/Reflection}}/Reflection.UnitTests/CodeSmokeTests.cs(48)",
+            Code.MemberAtFqpnWithLineNumber(),
+            Code.AtLineNumber());
     }
 }
 
