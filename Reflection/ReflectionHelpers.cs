@@ -1,5 +1,7 @@
 // Copyright and trademark notices at the end of this file.
 
+using SharperHacks.CoreLibs.Constraints;
+
 using System.Reflection;
 
 namespace SharperHacks.CoreLibs.Reflection;
@@ -9,6 +11,48 @@ namespace SharperHacks.CoreLibs.Reflection;
 /// </summary>
 public static class ReflectionHelpers
 {
+    /// <summary>
+    /// Performs deep copy.
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
+    /// <param name="sourceObject"></param>
+    /// <returns></returns>
+    // ToDo: Perf tests.
+    public static T? GetCloneFrom<T>(T sourceObject)
+    {
+        Verify.IsNotNull(sourceObject);
+
+        var type = sourceObject.GetType();
+        var properties = type.GetProperties();
+
+        if (type == typeof(string)) return (T)sourceObject;
+
+        var clonedObj = (object?)Activator.CreateInstance(type);
+        Verify.IsNotNull(clonedObj);
+
+        foreach (var property in properties)
+        {
+            if (property.CanWrite)
+            {
+                object? value = property.GetValue(sourceObject);
+                if (value is not null)
+                {
+                    var valueName = value.GetType().FullName;
+                    if (valueName is not null && value.GetType().IsClass && !valueName.StartsWith("System.", StringComparison.InvariantCulture))
+                    {
+                        property.SetValue(clonedObj, GetCloneFrom(value));
+                    }
+                    else
+                    {
+                        property.SetValue(clonedObj, value);
+                    }
+                }
+            }
+        }
+
+        return (T)clonedObj;
+    }
+
     /// <summary>
     /// Determines whether <paramref name="type"/> implements <paramref name="interfaceTypeToMatch"/>..
     /// Correctly handles generic interaces.

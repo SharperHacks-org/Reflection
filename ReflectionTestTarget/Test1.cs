@@ -14,6 +14,7 @@ namespace SharperHacks.CoreLibs.Reflection.UnitTests.TestTarget;
 public class Test1 : ITest1
 {
     public int Value { get; set; } = 41;
+    public string StrValue { get; set; } = "41 and 43 are prime.";
 }
 
 // Copyright Joseph W Donahue and Sharper Hacks LLC (US-WA)

@@ -2,6 +2,7 @@
 
 using SharperHacks.CoreLibs.Reflection.UnitTests.TestInterface;
 using SharperHacks.CoreLibs.Reflection.UnitTests.TestTarget;
+using SharperHacks.CoreLibs.ReflectionTestTarget;
 
 using System.Reflection;
 
@@ -16,6 +17,31 @@ public class ReflectionHelpersSmokeTests
     {
         Assert.IsTrue(ReflectionHelpers.DoesTypeSupportInterface(typeof(Test1), typeof(ITest1)));
         Assert.IsFalse(ReflectionHelpers.DoesTypeSupportInterface(typeof(Test2), typeof(ITest3)));
+    }
+
+    [TestMethod]
+    [SuppressMessage("Usage", "CA2201:Do not raise reserved exception types", Justification = "<Pending>")]
+    public void TestGetCloneFromT()
+    {
+        var t1 = new Test1();
+        var t2 = ReflectionHelpers.GetCloneFrom(t1);
+
+        Assert.IsNotNull(t2);
+        Assert.AreNotEqual(t1, t2);
+        Assert.AreEqual(t1.StrValue, t2.StrValue);
+        Assert.AreEqual(t1.Value, t2.Value);
+
+        var str1 = "Str1";
+        var str2 = ReflectionHelpers.GetCloneFrom(str1);
+
+        Assert.AreEqual(str1, str2);
+
+        var t4_1 = new Test4();
+        var t4_2 = ReflectionHelpers.GetCloneFrom(t4_1);
+
+        Assert.IsNotNull(t4_2);
+        Assert.AreNotEqual(t4_1, t4_2);
+        Assert.AreEqual(t4_1.T1.StrValue, t4_2.T1.StrValue);
     }
 
     [TestMethod]

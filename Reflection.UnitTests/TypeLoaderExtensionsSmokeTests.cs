@@ -16,7 +16,7 @@ public class TypeLoaderExtensionsSmokeTests
     {
         var assemblyName = "SharperHacks.CoreLibs.ReflectionTestTarget";
         var fileName = Path.Join(Directory.GetCurrentDirectory(), assemblyName + ".dll");
-        var expectedCount = 4;
+        var expectedCount = 5;
 
         Console.WriteLine($"Current directory {Directory.GetCurrentDirectory()}");
 
