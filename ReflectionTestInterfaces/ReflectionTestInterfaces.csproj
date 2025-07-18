@@ -9,7 +9,10 @@
     <FileVersion>0.0.0.0</FileVersion>
     <GeneratePackageOnBuild>False</GeneratePackageOnBuild>
     <Title>$(AssemblyName)</Title>
-    <PathMap>$(SolutionDir)={$(PathMapRoot)/$(SolutionName)}/</PathMap>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Deterministic)' == 'true' And '$(PathMap)' == ''">
+    <PathMap>$(SolutionDir)={$(PathMapRoot)/$(SolutionName)}/</PathMap>   
   </PropertyGroup>
 
   <PropertyGroup>
