@@ -1,18 +1,21 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <ImplicitUsings>enable</ImplicitUsings>
-    <Nullable>enable</Nullable>
-    <IsPackable>false</IsPackable>
-    <IsTestProject>true</IsTestProject>
-    <PathMap>$(SolutionDir)={$(PathMapRoot)/$(SolutionName)}/</PathMap>
-  </PropertyGroup>
-
-  <PropertyGroup>
     <SuppressNETCoreSdkPreviewMessage>true</SuppressNETCoreSdkPreviewMessage>
     <AssemblyName>SharperHacks.CoreLibs.$(MSBuildProjectName)</AssemblyName>
     <RootNamespace>SharperHacks.CoreLibs.$(MSBuildProjectName.Replace(" ", "_"))</RootNamespace>
     <OutputType>Library</OutputType>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Deterministic)' == 'true' And '$(PathMap)' == ''">
+    <PathMap>$(SolutionDir)={$(PathMapRoot)/$(SolutionName)}/</PathMap>   
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <IsPackable>false</IsPackable>
+    <IsTestProject>true</IsTestProject>
   </PropertyGroup>
 
   <ItemGroup>
@@ -29,7 +32,7 @@
     <ProjectReference Include="..\ReflectionTestInterfaces\ReflectionTestInterfaces.csproj" />
     <ProjectReference Include="..\ReflectionTestTarget\ReflectionTestTarget.csproj" />
     <ProjectReference Include="..\Reflection\Reflection.csproj" />
-    <PackageReference Include="SharperHacks.CoreLibs.Constraints" Version="5.0.0" />
+    <PackageReference Include="SharperHacks.CoreLibs.Constraints" Version="5.0.1" />
   </ItemGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net8.0|AnyCPU'">

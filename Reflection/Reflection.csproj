@@ -34,10 +34,8 @@
 
   <PropertyGroup>
     <AnalysisLevel>latest-recommended</AnalysisLevel>
-    <Deterministic>true</Deterministic>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
-    <PathMap>$(MSBuildThisFileDirectory)={SHLLC/CoreLibs/$(MSBuildProjectName)}/</PathMap>
     <NuGetAuditMode>all</NuGetAuditMode>
   </PropertyGroup>
 
@@ -66,7 +64,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="SharperHacks.CoreLibs.Constraints" Version="5.0.0" />
+    <PackageReference Include="SharperHacks.CoreLibs.Constraints" Version="5.0.1" />
   </ItemGroup>
 
   <ItemGroup>
