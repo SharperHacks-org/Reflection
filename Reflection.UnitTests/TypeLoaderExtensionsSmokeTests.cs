@@ -41,12 +41,12 @@ public class TypeLoaderExtensionsSmokeTests
     //
         Assert.AreEqual(expectedCount + 2, allTypes.Count);
 #else
-        Assert.AreEqual(expectedCount, allTypes.Count);
+        Assert.HasCount(expectedCount, allTypes);
 #endif
 
         var interface1Types = new List<Type>(assembly.GetLoadableTypesWithInterface(typeof(ITest3)));
         Assert.IsNotNull(interface1Types);
-        Assert.AreEqual(2, interface1Types.Count);
+        Assert.HasCount(2, interface1Types);
     }
 }
 

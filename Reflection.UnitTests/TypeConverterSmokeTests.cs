@@ -32,7 +32,7 @@ public class TypeConverterSmokeTests
 
         var intResultArrray = TypeConverter.ConvertFromArrayOfString<int[]>(numericStrings.Source);
         Assert.IsNotNull(intResultArrray);
-        Assert.AreEqual(numericStrings.Source.Length, intResultArrray.Length);
+        Assert.HasCount(numericStrings.Source.Length, intResultArrray);
 
         for (int idx = 0; idx < intResultArrray.Length; idx++)
         {
@@ -41,7 +41,7 @@ public class TypeConverterSmokeTests
 
         var stringResultArray = TypeConverter.ConvertFromArrayOfString<string[]>(stringStrings.Source);
         Assert.IsNotNull(stringResultArray);
-        Assert.AreEqual(stringStrings.Source.Length, stringResultArray.Length);
+        Assert.HasCount(stringStrings.Source.Length, stringResultArray);
 
         for(int idx = 0; idx < stringResultArray.Length; idx++)
         {
@@ -50,7 +50,7 @@ public class TypeConverterSmokeTests
 
         var boolResultArray = TypeConverter.ConvertFromArrayOfString<bool[]>(boolStrings.Source);
         Assert.IsNotNull(boolResultArray);
-        Assert.AreEqual(boolStrings.Source.Length, boolResultArray.Length);
+        Assert.HasCount(boolStrings.Source.Length, boolResultArray);
 
         for(int idx = 0; idx < boolResultArray.Length; idx++)
         {
@@ -92,7 +92,6 @@ public class TypeConverterSmokeTests
         foreach(var item in intData)
         {
             var result = TypeConverter.ConvertFromString<int>(item.Key);
-            Assert.IsNotNull(result);
             Assert.AreEqual(item.Value, result);
         }
 
@@ -106,7 +105,6 @@ public class TypeConverterSmokeTests
         foreach (var item in enumData)
         {
             var result = TypeConverter.ConvertFromString<TestEnum>(item.Key);
-            Assert.IsNotNull(result);
             Assert.AreEqual(item.Value, result);
         }
 
@@ -114,7 +112,7 @@ public class TypeConverterSmokeTests
         {
             var result = TypeConverter.ConvertFromString<int[]>(item.Key);
             Assert.IsNotNull(result);
-            Assert.AreEqual(item.Value.Length, result.Length);
+            Assert.HasCount(item.Value.Length, result);
 
             for(int idx = 0; idx < result.Length; idx++)
             {

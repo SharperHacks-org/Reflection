@@ -77,7 +77,7 @@ public class ReflectionHelpersSmokeTests
             Console.WriteLine($"  {shortName}");
             names.Add(shortName);
         }
-        Assert.AreEqual(expectedPrefixes.Length, names.Count);
+        Assert.HasCount(expectedPrefixes.Length, names);
 
         foreach(var name in names)
         {
@@ -131,7 +131,7 @@ public class ReflectionHelpersSmokeTests
             Assert.IsTrue(expectedTypeNames.Contains(name));
         }
 
-        Assert.AreEqual(expectedTypeNames.Length, names.Count);
+        Assert.HasCount(expectedTypeNames.Length, names);
     }
 
     [TestMethod]
@@ -167,7 +167,7 @@ public class ReflectionHelpersSmokeTests
             Assert.IsTrue(expectedTypeNames.Contains(name));
         }
 
-        Assert.AreEqual(expectedTypeNames.Length, names.Count);
+        Assert.HasCount(expectedTypeNames.Length, names);
     }
 }
 
