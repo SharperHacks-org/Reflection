@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <Description>Defines reflection classes and methods.</Description>
@@ -40,7 +40,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="SharperHacks.CoreLibs.Constraints" Version="5.0.2" />
+    <PackageReference Include="SharperHacks.CoreLibs.Constraints" Version="5.0.3" />
   </ItemGroup>
 
   <ItemGroup>
